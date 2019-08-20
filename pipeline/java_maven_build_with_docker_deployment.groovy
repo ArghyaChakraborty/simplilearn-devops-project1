@@ -1,7 +1,7 @@
 node('master') {
 currentBuild.result = 'SUCCESS'
 def jobStatus
-def mvnHome = tool 'Local-Maven'
+def mvnHome = tool 'Simplilearn-Maven'
 
   try {    
    
