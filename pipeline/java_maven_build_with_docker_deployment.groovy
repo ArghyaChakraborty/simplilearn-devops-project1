@@ -7,6 +7,7 @@ def mvnHome = tool 'Simplilearn-Maven'
    
     stage("Checkout Stage"){
       timestamps {
+		cleanWs()
         try {
             checkout([$class: 'GitSCM',
                 branches: [[name: 'master']],
