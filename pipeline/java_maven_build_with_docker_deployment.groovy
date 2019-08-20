@@ -55,7 +55,7 @@ def mvnHome = tool 'Simplilearn-Maven'
                         userRemoteConfigs: [[credentialsId: 'arghyaGithubId',name: 'origin',
                         url: 'https://github.com/ArghyaChakraborty/simplilearn-devops-project1.git']]])               
 
-					    sh(script: "mv ${WORKSPACE}/demo_java/docker/${env.BUILD_NUMBER}/demo.war ${WORKSPACE}/simplilearn-devops-project1/docker/")
+					    sh(script: "mv ${WORKSPACE}/demo_java/target/demo.war ${WORKSPACE}/simplilearn-devops-project1/docker/")
                         docker.build("simplilearn-project1-${env.BUILD_NUMBER}", "${WORKSPACE}/simplilearn-devops-project1/docker/")
 						
                     currentBuild.result = 'SUCCESS'
