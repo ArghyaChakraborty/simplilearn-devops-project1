@@ -2,6 +2,8 @@ pipelineJob('SimplilearnProject1PipelineJob') {
 description('This pipeline job is for Simplilearn Project 1')
 triggers {
 	GenericTrigger {
+		regexpFilterText("")
+		regexpFilterExpression("")
 		token("SimplilearnProject1PipelineJob")
 	}
 }
