@@ -56,8 +56,7 @@ def mvnHome = tool 'Simplilearn-Maven'
                         url: 'https://github.com/ArghyaChakraborty/simplilearn-devops-project1.git']]])               
 
 					    sh(script: "mv ${WORKSPACE}/demo_java/target/demo.war ${WORKSPACE}/simplilearn-devops-project1/docker/")
-						sh(script: "docker build -t simplilearn-project1-${env.BUILD_NUMBER} ${WORKSPACE}/simplilearn-devops-project1/docker/")
-                        // docker.build("simplilearn-project1-${env.BUILD_NUMBER}", "${WORKSPACE}/simplilearn-devops-project1/docker/")
+						docker.build("simplilearn-project1-${env.BUILD_NUMBER}", "${WORKSPACE}/simplilearn-devops-project1/docker/")
 						
                     currentBuild.result = 'SUCCESS'
                 } catch(Exception err) {
