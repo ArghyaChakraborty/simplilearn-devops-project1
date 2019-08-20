@@ -2,6 +2,7 @@ node('master') {
 currentBuild.result = 'SUCCESS'
 def jobStatus
 def mvnHome = tool 'Simplilearn-Maven'
+def dockerhubId = 'arghya1988'
 
   try {    
    
@@ -56,7 +57,8 @@ def mvnHome = tool 'Simplilearn-Maven'
                         url: 'https://github.com/ArghyaChakraborty/simplilearn-devops-project1.git']]])               
 
 					    sh(script: "mv ${WORKSPACE}/demo_java/target/demo.war ${WORKSPACE}/simplilearn-devops-project1/docker/")
-						docker.build("simplilearn-project1-${env.BUILD_NUMBER}", "${WORKSPACE}/simplilearn-devops-project1/docker/")
+						def customImage = docker.build("${dockerhubId}/simplilearn-project1-${env.BUILD_NUMBER}", "${WORKSPACE}/simplilearn-devops-project1/docker/")
+						customImage.push();
 						
                     currentBuild.result = 'SUCCESS'
                 } catch(Exception err) {
