@@ -1,7 +1,9 @@
 pipelineJob('SimplilearnProject1PipelineJob') {
 description('This pipeline job is for Simplilearn Project 1')
-GenericTrigger {
-	token("SimplilearnProject1PipelineJob")
+triggers {
+	GenericTrigger {
+		token("SimplilearnProject1PipelineJob")
+	}
 }
 definition {
         cps {
