@@ -58,7 +58,7 @@ def dockerhubId = 'arghya1988'
 
 					    sh(script: "mv ${WORKSPACE}/demo_java/target/demo.war ${WORKSPACE}/simplilearn-devops-project1/docker/")
 					    withDockerRegistry(registry: [credentialsId: 'dockerhubId']) {
-						    def customImage = docker.build("${dockerhubId}/simplilearn-project1-${env.BUILD_NUMBER}", "${WORKSPACE}/simplilearn-devops-project1/docker/")
+						    def customImage = docker.build("${dockerhubId}/simplilearn-project1:${env.BUILD_NUMBER}", "${WORKSPACE}/simplilearn-devops-project1/docker/")
 						    customImage.push();
 					    }
 						
